@@ -12,7 +12,7 @@ namespace simple_di_container
         private static void runDISample()
         {
             Console.WriteLine("Started...");
-            var diContainer = new SimpleDIContainer();
+            var diContainer = SimpleDIContainer.Instance;
             diContainer.Register<ILogger, FileLogger>();
             diContainer.Register<IMailService, SimpleMailService>();
             diContainer.Register<PersonBO, PersonBO>();

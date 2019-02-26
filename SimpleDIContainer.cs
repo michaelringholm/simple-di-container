@@ -13,6 +13,12 @@ namespace simple_di_container
             Transient
         }
 
+        private SimpleDIContainer() {
+        }
+        
+        private static SimpleDIContainer _instance = new SimpleDIContainer();
+        public static SimpleDIContainer Instance { get { return _instance; } }
+        
         private readonly IList<RegisteredObject> registeredObjects = new List<RegisteredObject>();
 
         public void Register<TTypeToResolve, TConcrete>()
