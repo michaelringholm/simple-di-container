@@ -6,11 +6,10 @@ namespace simple_di_container
     {
         static void Main(string[] args)
         {
-            //test1();
-            test2();
+            runDISample();
         }
 
-        private static void test2()
+        private static void runDISample()
         {
             Console.WriteLine("Started...");
             var diContainer = new SimpleDIContainer();
@@ -21,19 +20,6 @@ namespace simple_di_container
             var personBO = diContainer.GetInstance<PersonBO>();
             mailService.SendMail();
             personBO.CreatePerson();
-            Console.WriteLine("Ended!");
-        }
-
-        private static void test1()
-        {
-            Console.WriteLine("Started...");
-            var diContainer = new SimpleDIContainer2();
-            diContainer.RegisterSingleton<ILogger>(new FileLogger());
-            diContainer.Register<IMailService, SimpleMailService>();
-            //container.Register<IUserRepository, SqlUserRepository>();
-            //container.GetInstance(typeof(HomeController));
-            var mailService = diContainer.GetInstance<IMailService>(typeof(IMailService));
-            mailService.SendMail();
             Console.WriteLine("Ended!");
         }
     }
