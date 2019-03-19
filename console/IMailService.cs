@@ -1,4 +1,4 @@
-namespace simple_di_container
+namespace console
 {
     public interface IMailService
     {

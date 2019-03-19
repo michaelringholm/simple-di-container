@@ -1,4 +1,4 @@
-namespace simple_di_container
+namespace console
 {
     public class PersonBO {
         private ILogger _logger;

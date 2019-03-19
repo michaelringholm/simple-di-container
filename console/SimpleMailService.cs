@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace simple_di_container
+namespace console
 {
     public class SimpleMailService : IMailService
     {

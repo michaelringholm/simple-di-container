@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/simple-di-container.csproj"
+                "${workspaceFolder}/console/console.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

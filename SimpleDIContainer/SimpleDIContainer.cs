@@ -17,8 +17,7 @@ namespace simple_di_container
         }
         
         private static SimpleDIContainer _instance = new SimpleDIContainer();
-        public static SimpleDIContainer Instance { get { return _instance; } }
-        
+        public static SimpleDIContainer Instance { get { return _instance; } }        
         private readonly IList<RegisteredObject> registeredObjects = new List<RegisteredObject>();
 
         public void Register<TTypeToResolve, TConcrete>()
@@ -30,6 +29,15 @@ namespace simple_di_container
         {
             registeredObjects.Add(new RegisteredObject(typeof (TTypeToResolve), typeof (TConcrete), lifeCycle));
         }
+
+        public void Register<TTypeToResolve>(Object instance)
+        {
+            if(instance == null)
+                throw new Exception("Instance is not allowed to be null");
+            if(!(instance is TTypeToResolve))
+                throw new Exception($"Instance is of the wrong type");
+            registeredObjects.Add(new RegisteredObject(typeof (TTypeToResolve), instance.GetType(), LifeCycle.Singleton, instance));
+        }        
 
         public TTypeToResolve GetInstance<TTypeToResolve>()
         {
